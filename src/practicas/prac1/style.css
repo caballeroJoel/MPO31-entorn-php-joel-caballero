@@ -1,0 +1,79 @@
+* {
+    margin: 0;
+    padding: 0;
+
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow';
+
+}
+header {
+    padding: 22px 44px;
+
+    display: flex;
+    justify-content: space-between;
+
+    background-color: rgb(35, 35, 68);
+
+    color: aliceblue;
+
+    div {
+        display: flex;
+        align-items: center;
+
+        h1 { 
+            font-size: 36px;
+        }
+    }
+
+    img {
+        padding: 6px;
+        background-color: aliceblue;
+        border-radius: 6px;
+    }
+}
+
+main {
+    padding: 4rem 0rem;
+    display: flex;
+    justify-content: center;
+
+    > div {
+        width: 70%;
+
+        display: flex;
+        justify-content: space-around;
+        gap: 24px;
+    
+        .measf {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+
+            img {
+                width: 20rem;
+                height: 20rem;
+                border-radius: 50%;
+            }
+        }
+
+        .aboutme {
+            width: 60%;
+
+            p {
+                font-weight: 100;
+                text-align: justify;
+            }
+        }
+
+    }
+}
+
+footer {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    color: aliceblue;
+    background-color: rgb(35, 35, 68);
+}
