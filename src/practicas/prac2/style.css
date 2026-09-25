@@ -1,0 +1,236 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: rgb(223, 255, 255);
+}
+
+.index {
+    main {
+        padding: 16px;
+
+        h1 {
+            margin-bottom: 16px;
+        }
+
+        .listado {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+
+            div {
+                padding: 12px;
+                width: 250px;
+
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+
+                background-color: antiquewhite;
+                border: 1px solid black;
+            }
+        }
+
+    }
+}
+
+.ex1 {
+    margin: 12px;;
+    width: 50%;
+
+    .principal {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+
+        div {
+            width: 2rem;
+            height: 2rem;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border: 1px solid black;
+        }
+    }
+}
+
+.ex2 {
+    main {
+        padding: 12px;
+        display: flex;
+        gap: 26px;
+
+        .tabla {
+            padding: 12px;
+
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+
+            border: 1px solid black;
+            > p {
+                font-size: 22px;
+                font-weight: 700;
+            }
+        }
+    }
+}
+
+.ex3 {
+    main {
+        padding: 4rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 3rem;
+
+        .num-rand {
+            padding: 6px 12px;
+            font-weight: 700;
+            font-size: 58px;
+        }
+
+        p {
+            font-size: 46px;
+        }
+
+        .par {
+            background-color: green;
+        }
+        .inpar {
+            background-color: violet;
+        }
+    }
+}
+
+.ex4 {
+    padding: 28px;
+
+    display: flex;
+    justify-content: center;
+
+    main {
+        width: 50%;
+
+        padding: 24px 18px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 14px;
+
+        border: 1px solid black;
+        border-radius: 12px;
+        background-color: antiquewhite;
+
+        .num-selec{
+            h1 {
+                font-size: 48px;
+            }
+        }
+        .divis-num {
+
+            h2 {
+                margin-bottom: 12px;
+            }
+
+            > div {
+                width: 100%;
+
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 16px;
+
+                p {
+                    padding: 6px;
+
+                    font-size: 22px;
+
+                    border: 1px solid black;
+                    border-radius: 6px;
+                    background-color: rgb(223, 255, 255);
+                }
+            }
+        }
+        .primo {
+            .correcto {
+                color: green;
+            }
+            .incorrecto {
+                color: red;
+            }
+        }
+    }
+}
+
+.ex5 {
+    padding: 28px;
+
+    display: flex;
+    justify-content: center;
+
+    main {
+        width: 50%;
+        min-height: 250px;
+        padding: 1.5rem .5rem;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+        border: 1px solid black;
+        border-radius: 6px;
+        background-color: antiquewhite;
+
+        .title {
+            margin-bottom: 1rem;
+        }
+
+        .temps {
+            width: 80%;
+            margin-bottom: 2rem;
+
+            display: grid;
+            grid-template-columns: repeat(3, 30%);
+            justify-content: space-between;
+            gap: 12px;
+
+            div {
+                padding: 1rem 0.5rem;
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                border: 1px solid black;
+                border-radius: 8px;
+
+                h3 {
+                    font-size: 26px;
+                }
+            }
+
+            .calor {
+                background-color: rgb(228, 74, 74);
+                color: white;
+            }
+            
+            .frio {
+                background-color: rgb(74, 74, 230);
+                color: white;
+            }
+            
+            .suave {
+                background-color: rgb(252, 189, 72);
+                color: black;
+            }
+
+        }
+    }
+}

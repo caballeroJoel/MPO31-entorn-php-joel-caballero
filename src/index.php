@@ -20,6 +20,11 @@
                     <li><a href="./teoria/sesion1_18-09/carta.php">carta.php</a></li>
                 </ul>
             </li>
+            <li>Sesion 2
+                <ul>
+                    <li><a href="./teoria/sesion2_25-09">hola.php</a></li>
+                </ul>
+            </li>
         </ul>
         
         <h3>Practica:</h3>
@@ -28,6 +33,11 @@
                 <ul>
                     <li><a href="./practicas/prac1/hola.php">hola.php</a></li>
                     <li><a href="./practicas/minireto1/">index.php</a></li>
+                </ul>
+            </li>
+            <li>Sesion 2
+                <ul>
+                    <li><a href="./practicas/prac2/index.php">index.php</a></li>
                 </ul>
             </li>
         </ul>
