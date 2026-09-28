@@ -83,8 +83,10 @@ body {
     main {
         display: flex;
         flex-direction: column;
+        gap: 24px;
 
         .resume-proyectos {
+            margin-top: 24px;
             display: flex;
             justify-content: space-between;
 
@@ -185,6 +187,8 @@ body {
                 }
             }
         }
+
+        
     }
 
 }
