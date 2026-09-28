@@ -1,5 +1,5 @@
 <?php
-    $numrand = rand(0, 100);
+    $numrand = rand(1, 100);
     $primo = true;
 ?>
 <!DOCTYPE html>
