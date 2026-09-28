@@ -41,6 +41,15 @@
                 </ul>
             </li>
         </ul>
+        
+        <h3>Proyectos:</h3>
+        <ul>
+            <li>Proyecto 2:
+                <ul>
+                    <li><a href="./proyectos/proyecto-2/">index.php</a></li>
+                </ul>
+            </li>
+        </ul>
 
     </body>
 </html>

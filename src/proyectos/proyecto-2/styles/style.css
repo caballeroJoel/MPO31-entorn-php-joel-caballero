@@ -1,0 +1,190 @@
+* {
+    margin: 0;
+    padding: 0;
+
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background-color: var(--back-color);
+
+    > * {
+        width: 80%;
+    }
+
+    header {
+        padding: 22px 12px;
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+
+        .title {
+            display: flex;
+            gap: 32px;
+            img {
+                width: 74px;
+                height: 74px;
+            }
+            .title-names {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                
+                h1 {
+                    font-size: 38px;
+                    color: var(--txt-col-1);
+                }
+                h3 {
+                    font-size: 24px;
+                    color: var(--txt-col-2);
+                }
+            }
+        }
+
+        .main-menu {
+            display: flex;
+            align-items: center;
+
+            gap: 16px;
+
+            .selected {
+                background-color: var(--menu-select);
+                color: var(--color1);
+
+                img {
+                    filter: invert(65%) sepia(51%) saturate(674%) hue-rotate(85deg) brightness(65%) contrast(95%);
+                }
+            }
+
+            div {
+                padding: 20px 16px;
+
+                display: flex;
+                gap: 8px;
+
+                border-radius: 12px;
+
+                font-weight: 900;
+
+                cursor: pointer;
+
+                img {
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+        }
+    }
+
+    main {
+        display: flex;
+        flex-direction: column;
+
+        .resume-proyectos {
+            display: flex;
+            justify-content: space-between;
+
+            .container {
+                padding: 28px 38px;
+
+                display: flex;
+                gap: 26px;
+
+                border-radius: 8px;
+
+                img {
+                    width: 48px;
+                    height: 48px;
+                    padding: 8px;
+                    border-radius: 8px;
+                }
+
+                .content {
+                    .list {
+                        font-size: 28px;
+                        font-weight: 700;
+                    }
+                    p {
+                        font-size: 20px;
+                        font-weight: 600;
+                    }
+                    span {
+                        font-size: 14px;
+                        font-weight: 600;
+                    }
+                }
+
+                
+            }
+
+            .proyectos {
+                background-color: var(--resume-proyectos);
+                img {
+                    filter: invert(48%) sepia(35%) saturate(1200%) hue-rotate(178deg) brightness(52%) contrast(100%);
+
+                    background-color: rgba(255, 255, 255, 0.1);
+                }
+
+                p {
+                    color: color-mix(in srgb, var(--resume-proyectos) 30%, black);
+                }
+                span {
+                    color: color-mix(in srgb, var(--resume-proyectos) 80%, black);
+                }
+            }
+
+            .priori {
+                background-color: var(--resume-priori);
+                img {
+                    filter: invert(32%) sepia(32%) saturate(2200%) hue-rotate(325deg) brightness(88%) contrast(95%);
+
+                    background-color: rgba(255, 255, 255, 0.1);
+                }
+
+                p {
+                    color: color-mix(in srgb, var(--resume-priori) 30%, black);
+                }
+                span {
+                    color: color-mix(in srgb, var(--resume-priori) 80%, black);
+                }
+            }
+
+            .horas {
+                background-color: var(--resume-horas);
+                img {
+                    filter: invert(67%) sepia(32%) saturate(800%) hue-rotate(93deg) brightness(70%) contrast(100%);
+
+                    background-color: rgba(255, 255, 255, 0.1);
+                }
+
+                p {
+                    color: color-mix(in srgb, var(--resume-horas) 30%, black);
+                }
+                span {
+                    color: color-mix(in srgb, var(--resume-horas) 80%, black);
+                }
+            }
+
+            .tecnos {
+                background-color: var(--resume-tecnos);
+                img {
+                    filter: invert(32%) sepia(38%) saturate(2200%) hue-rotate(250deg) brightness(88%) contrast(95%);
+
+                    background-color: rgba(255, 255, 255, 0.1);
+                }
+
+                p {
+                    color: color-mix(in srgb, var(--resume-tecnos) 30%, black);
+                }
+                span {
+                    color: color-mix(in srgb, var(--resume-tecnos) 80%, black);
+                }
+            }
+        }
+    }
+
+}
