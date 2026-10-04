@@ -188,7 +188,392 @@ body {
             }
         }
 
-        
+        .proyectos-activos {
+
+            .cabezera {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+
+                h2 {
+                    font-size: 24px;
+                    font-weight: 700;
+                    color: var(--txt-col-1);
+                }
+                p {
+                    font-size: 16px;
+                    font-weight: 600;
+                    color: var(--txt-col-2);
+                }
+                select {
+                    padding: 8px 12px;
+
+                    border-radius: 8px;
+
+                    font-size: 16px;
+                }
+            }
+
+            .display-proyectos {
+                width: 100%;
+                margin-top: 24px;
+                display: grid;
+                grid-template-columns: repeat(4, 24%);
+                justify-content: space-between;
+                gap: 16px;
+    
+                .container {
+                    padding: 12px 18px;
+                    min-height: 10px;
+    
+                    display: flex;
+                    flex-direction: column;
+                    gap: 16px;
+    
+                    border: 1px solid rgba(128, 128, 128, 0.473);
+                    border-radius: 16px;
+    
+                    .head {
+                        display: grid;
+                        grid-template-columns: 20% 60% 20%;
+                        align-items: center;
+    
+                        p {
+                            font-size: 16px;
+                            font-weight: 600;
+                            color: var(--txt-col-3);
+                        }
+                        .prori {
+                            display: flex;
+                            justify-content: flex-end;
+                            p {
+                                padding: 4px 8px;
+                                border-radius: 6px;
+                            }
+                        }
+                        .Alta {
+                            p {
+                                background-color: rgba(255, 154, 154, 0.582);
+                                color: red;
+                            }
+                        }
+                        .Media {
+                            p {
+                                background-color: rgba(255, 219, 153, 0.582);
+                                color: orange;
+                            }
+                        }
+                        .Baja {
+                            p {
+                                background-color: rgba(101, 255, 101, 0.582);
+                                color: green;
+                            }
+                        }
+                    }
+                    .body {
+                        display: grid;
+                        grid-template-columns: 15% 85%;
+                        gap: 16px;
+    
+                        .img-pr {
+                            padding: 12px;
+                            display: flex;
+                            justify-content: center;
+    
+                            border-radius: 12px;
+    
+                            background-color: var(--resume-proyectos);
+                            img {
+                                width: 25px;
+                                height: 25px;
+                            }
+                        }
+                        .content {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-evenly;
+    
+                            p {
+                                font-size: 16px;
+                                font-weight: 600;
+                            }
+                            span {
+                                font-size: 14px;
+                                font-weight: 600;
+                                color: color-mix(in srgb, var(--txt-col-3), rgba(128, 128, 128, 0.507) 70%);
+                            }
+                        }
+                    }
+                    .foot {
+                        min-height: 25px;
+                        display: flex;
+                        gap: 16px;
+    
+                        p {
+                            font-size: 14px;
+                            font-weight: 600;
+                            color: var(--txt-col-3);
+                        }
+                        span {
+                            font-size: 14px;
+                            font-weight: 600;
+                            color: var(--txt-col-3);
+                        }
+                        .time {
+                            display: flex;
+                            align-items: center;
+                            gap: 8px;
+    
+                            img {
+                                width: 16px;
+                                height: 16px;
+                            }
+                        }
+                        .prior {
+                            display: flex;
+                            gap: 6px;
+                            .graf {
+                                width: 26px;
+                                height: 80%;
+    
+                                display: flex;
+                                align-items: flex-end;
+                                justify-content: center;
+                                gap: 2px;
+    
+                                div {
+                                    width: 15%;
+                                    border-radius: 4px;
+                                }
+    
+                                div:nth-child(1) {
+                                    height: 25%;
+                                }
+                                div:nth-child(2) {
+                                    height: 50%;
+                                }
+                                div:nth-child(3) {
+                                    height: 75%;
+                                }
+                            }
+                            .Alta {
+                                div {
+                                    background-color: red;
+                                }
+                            }
+                            .Media {
+                                div {
+                                    background-color: orange;
+                                }
+                            }
+                            .Baja {
+                                div {
+                                    background-color: green;
+                                }
+                            }
+                            .txt-prior {
+                                display: flex;
+                                align-items: center;
+                                gap: 6px;
+                                p {   
+                                    font-size: 14px;
+                                    font-weight: 600;
+                                    color: var(--txt-col-3);
+                                }
+    
+                            } 
+                        }
+                    }
+                }
+            }
+            
+            .resume {
+                margin: 24px 0px;
+                display: grid;
+                grid-template-columns: 54% 45%;
+                justify-content: space-between;
+
+                .resume-proyects {
+                    padding: 24px 32px;
+
+                    display: flex;
+                    flex-direction: column;
+                    gap: 24px;
+
+                    border: 1px solid rgba(123, 123, 255, 0.705);
+                    border-radius: 16px;
+                    background-color: rgba(123, 123, 255, 0.253);
+                    
+                    .cabe {
+                        height: 50px;
+                        display: flex;
+                        gap: 16px;
+
+                        .graf {
+                            width: 50px;
+                            padding: 12px 2px;
+    
+                            display: flex;
+                            align-items: flex-end;
+                            justify-content: center;
+                            gap: 2px;
+
+                            background-color: rgba(123, 123, 255, 0.425);
+                            border-radius: 12px;
+    
+                            div {
+                                width: 15%;
+                                border-radius: 4px;
+                                background-color: blue;
+                            }
+    
+                            div:nth-child(1) {
+                                height: 33%;
+                            }
+                            div:nth-child(2) {
+                                height: 66%;
+                            }
+                            div:nth-child(3) {
+                                height: 100%;
+                            }
+
+                        }
+
+                        .txt-cabe {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-evenly;
+                            gap: 4px;
+
+                            p {
+                                font-size: 20px;
+                                font-weight: 600;
+                                color: var(--txt-col-3);
+                            }
+                            span {
+                                font-size: 14px;
+                                font-weight: 600;
+                                color: color-mix(in srgb, var(--txt-col-3), rgba(128, 128, 128, 0.507) 70%);
+                            }
+                        }
+
+                    }
+
+                    .resumen {
+                        display: flex;
+                        gap: 24px;
+
+                        hr {
+                            width: 1px;
+                            background-color: rgba(128, 128, 128, 0.507);
+                            border: none;
+                        }
+
+                        .tarjeta {
+                            display: flex;
+                            gap: 24px;
+                            
+                            .imagen {
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;                            
+
+                                img {
+                                    width: 32px;
+                                    height: 32px;
+                                }
+                            }
+                            p {
+                                font-size: 24px;
+                                font-weight: 600;
+                                color: var(--txt-col-3);
+                            }
+                            span {
+                                font-size: 14px;
+                                font-weight: 600;
+                                color: color-mix(in srgb, var(--txt-col-3), rgba(128, 128, 128, 0.507) 70%);
+                            }
+                        }
+                    }
+                }
+                        
+                .tecnologias {
+                    padding: 24px 32px;
+
+                    display: flex;
+                    flex-direction: column;
+                    gap: 24px;
+
+                    border: 1px solid rgba(105, 0, 167, 0.705);
+                    border-radius: 16px;
+                    background-color: rgba(120, 0, 190, 0.178);
+
+                    .cabe {
+                        height: 50px;
+                        display: flex;
+                        gap: 16px;
+
+                        .imagen {
+                            padding: 12px 8px;
+
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;                            
+
+                            background-color: rgba(120, 0, 190, 0.178);
+                            border-radius: 6px;
+
+                            img {
+                                width: 32px;
+                                height: 32px;
+                            }
+                        }
+
+                        .txt-cabe {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-evenly;
+                            gap: 4px;
+
+                            p {
+                                font-size: 20px;
+                                font-weight: 600;
+                                color: var(--txt-col-3);
+                            }
+                            span {
+                                font-size: 14px;
+                                font-weight: 600;
+                                color: color-mix(in srgb, var(--txt-col-3), rgba(128, 128, 128, 0.507) 70%);
+                            }
+                        }
+
+                    }
+
+                    .listados-tecnos {
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: 16px;
+
+                        div {
+                            padding: 8px 12px;
+
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+
+                            border-radius: 8px;
+
+                            p {
+                                font-size: 14px;
+                                font-weight: 600;
+                                color: var(--txt-col-4);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
     }
 
 }
