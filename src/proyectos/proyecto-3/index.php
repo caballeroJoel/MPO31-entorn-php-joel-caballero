@@ -160,6 +160,18 @@
         ]
     ];
 
+    $contador_Asign = [
+        "php" => 0,
+        "js" => 0,
+        "react" => 0,
+        "html-css" => 0,
+        "docker" => 0,
+        "bbdd" => 0,
+        "proyectos" => 0,
+    ];
+
+    $cont=0;
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -215,21 +227,133 @@
                 </div>
 
                 <div class="conceptos">
-                    <?php foreach($chuleta as $concepto): ?>
-                        <div class="concepto" style="background-color: color-mix(in srgb, <?= $asignaturas[$concepto['asigna']]['color'] ?> 60%, white);">
-                            <div class="title">
-                                <img src="/sources/asigna/<?= $concepto['asigna'] ?>.png" alt="">
-                                <span style="color: color-mix(in srgb, <?= $asignaturas[$concepto['asigna']]['color'] ?> 75%, black);"><?= $asignaturas[$concepto['asigna']]['nombre'] ?></span>
-                            </div>
-                            <div class="content">
-                                <div class="info">
-                                    <h2><?= $concepto['titulo'] ?></h2>
-                                    <p><?= $concepto['desc'] ?></p>
+                    <?php 
+                        foreach($chuleta as $concepto): 
+                            $contador_Asign[$concepto["asigna"]]++;
+                            if($contador_Asign[$concepto["asigna"]]<=2):
+
+                    ?>
+                                <div class="concepto" style="background-color: color-mix(in srgb, <?= $asignaturas[$concepto['asigna']]['color'] ?> 60%, white);">
+                                    <div class="title">
+                                        <img src="/sources/asigna/<?= $concepto['asigna'] ?>.png" alt="">
+                                        <span style="color: color-mix(in srgb, <?= $asignaturas[$concepto['asigna']]['color'] ?> 75%, black);"><?= $asignaturas[$concepto['asigna']]['nombre'] ?></span>
+                                    </div>
+                                    <div class="content">
+                                        <div class="info">
+                                            <h2><?= $concepto['titulo'] ?></h2>
+                                            <p><?= $concepto['desc'] ?></p>
+                                            <img src="/sources/conceptos/<?=$concepto['img'] ?>.png" alt="">
+                                        </div>
+                                    </div>
                                 </div>
+                    <?php
+                                $cont++;
+                            endif;
+                        if($cont==8) {
+                            break;
+                        }
+                        endforeach; 
+                    ?>
+
+                </div>
+
+                <div class="resumenes">
+                    <div class="res-conceptos">
+                        <div class="conc-separados">
+                            <div class="title">
+                                <img src="/sources/grafico.png" alt="">
+                                <p>Resumen de conceptos</p>
+                            </div>
+                            <div class="listado">
+                                <ul>
+                                    <?php
+                                        $contador = [];
+
+                                        foreach ($chuleta as $item) {
+                                            $asignatura = $item["asigna"];
+
+                                            if (!isset($contador[$asignatura])) {
+                                                $contador[$asignatura] = [
+                                                    "nombre" => $asignatura,
+                                                    "cantidad" => 0
+                                                ];
+                                            }
+
+                                            $contador[$asignatura]["cantidad"]++;
+                                        }
+
+                                        // echo "<pre>";
+                                        // var_dump($contador);
+                                        // echo "</pre>";
+
+                                        foreach($contador as $as):
+                                    ?>
+                                        <li>
+                                            <div>
+                                                <div class="circ" style="background-color: <?= $asignaturas[$as["nombre"]]['color'] ?>;"></div>
+                                                <span><?=$asignaturas[$as['nombre']]["nombre"]?></span>
+                                            </div>
+                                            <p><?=$as["cantidad"]?></p>
+                                        </li>
+                                    <?php 
+                                        endforeach; 
+                                    ?>
+                                </ul>
                             </div>
                         </div>
-                    <?php endforeach; ?>
+                        <div class="total-conc">
+                            <span>Total de conceptos</span>
+                            <p><?= count($chuleta) ?></p>
+                        </div>
+                    </div>
 
+                    <div class="asignaturas">
+                        <div>
+                            <div class="title">
+                                <img src="/sources/libro.png" alt="">
+                                <p>Asignaturas</p>
+                            </div>
+                            <div class="listado-asgin">
+                                <?php
+                                    foreach($asignaturas as $as):
+                                ?>
+                                    <div class="doc" style="background-color: color-mix(in srgb, <?=$as["color"]?> 65%, white)">
+                                        <p><?=$as["nombre"]?></p>
+                                    </div>
+                                <?php
+                                    endforeach;
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="destacados">
+                        <div>
+                            <div class="title">
+                                <img src="/sources/diana.png" alt="">
+                                <p>Conceptos destacados</p>
+                            </div>
+                            <div class="listado">
+                                <ul>
+                                    <?php
+                                        $cont=0;
+                                        foreach($chuleta as $chu):
+                                    ?>
+                                            <li>
+                                                <img src="/sources/estrella.png" alt="">
+                                                <p><?=$chu["titulo"]?></p>
+                                            </li>
+                                    <?php
+                                        $cont++;
+                                        if($cont==5) {
+                                            break;
+                                        }
+                                        endforeach;
+                                    ?>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </main>
