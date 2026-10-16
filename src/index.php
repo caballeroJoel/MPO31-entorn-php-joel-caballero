@@ -40,6 +40,11 @@
                     <li><a href="./practicas/prac2/index.php">index.php</a></li>
                 </ul>
             </li>
+            <li>Sesion 3
+                <ul>
+                    <li><a href="./practicas/prac3/index.php">index.php</a></li>
+                </ul>
+            </li>
         </ul>
         
         <h3>Proyectos:</h3>
