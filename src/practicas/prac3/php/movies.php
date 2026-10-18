@@ -1,3 +1,4 @@
+
 <?php
 
 $peliculas = [
@@ -11,10 +12,10 @@ $peliculas = [
         "director" => "Christopher Nolan",
         "reparto" => ["Matthew McConaughey", "Anne Hathaway", "Jessica Chastain"],
         "calificacion" => "+12",
+        "valoracion" => 5,
         "genero" => "Ciencia ficción",
-        "trailer" => "https://www.youtube.com/watch?v=zSWdZVtXT7E"
+        "trailer" => "https://www.youtube.com/embed/zSWdZVtXT7E?si=I_tccouX7XqoWCo_"
     ],
-
     [
         "id" => 2,
         "nombre" => "Origen",
@@ -25,10 +26,10 @@ $peliculas = [
         "director" => "Christopher Nolan",
         "reparto" => ["Leonardo DiCaprio", "Joseph Gordon-Levitt", "Elliot Page"],
         "calificacion" => "+12",
+        "valoracion" => 5,
         "genero" => "Ciencia ficción / Acción",
-        "trailer" => "https://www.youtube.com/watch?v=YoHD9XEInc0"
+        "trailer" => "https://www.youtube.com/embed/YoHD9XEInc0?si=DfwxHN3aQGwrYaaa"
     ],
-
     [
         "id" => 3,
         "nombre" => "El caballero oscuro",
@@ -39,10 +40,10 @@ $peliculas = [
         "director" => "Christopher Nolan",
         "reparto" => ["Christian Bale", "Heath Ledger", "Aaron Eckhart"],
         "calificacion" => "+13",
+        "valoracion" => 5,
         "genero" => "Acción / Drama",
-        "trailer" => "https://www.youtube.com/watch?v=EXeTwQWrcwY"
+        "trailer" => "https://www.youtube.com/embed/EXeTwQWrcwY?si=l6kQuaxcyMOfcMr7"
     ],
-
     [
         "id" => 4,
         "nombre" => "Avatar",
@@ -53,10 +54,10 @@ $peliculas = [
         "director" => "James Cameron",
         "reparto" => ["Sam Worthington", "Zoe Saldaña", "Sigourney Weaver"],
         "calificacion" => "+13",
+        "valoracion" => 5,
         "genero" => "Ciencia ficción / Aventura",
-        "trailer" => "https://www.youtube.com/watch?v=5PSNL1qE6VY"
+        "trailer" => "https://www.youtube.com/embed/5PSNL1qE6VY?si=GLVhYdSC8uLFDC3B"
     ],
-
     [
         "id" => 5,
         "nombre" => "Titanic",
@@ -67,10 +68,10 @@ $peliculas = [
         "director" => "James Cameron",
         "reparto" => ["Leonardo DiCaprio", "Kate Winslet", "Billy Zane"],
         "calificacion" => "+13",
+        "valoracion" => 5,
         "genero" => "Romance / Drama",
-        "trailer" => "https://www.youtube.com/watch?v=CHekzSiZjrY"
+        "trailer" => "https://www.youtube.com/embed/CHekzSiZjrY?si=_AUQg3C4Gj88DpLV"
     ],
-
     [
         "id" => 6,
         "nombre" => "Jurassic Park",
@@ -81,10 +82,10 @@ $peliculas = [
         "director" => "Steven Spielberg",
         "reparto" => ["Sam Neill", "Laura Dern", "Jeff Goldblum"],
         "calificacion" => "+12",
+        "valoracion" => 5,
         "genero" => "Aventura / Ciencia ficción",
-        "trailer" => "https://www.youtube.com/watch?v=lc0UehYemQA"
+        "trailer" => "https://www.youtube.com/embed/lc0UehYemQA?si=fHRvikMCnvyWy4rX"
     ],
-
     [
         "id" => 7,
         "nombre" => "Los Vengadores",
@@ -95,10 +96,10 @@ $peliculas = [
         "director" => "Joss Whedon",
         "reparto" => ["Robert Downey Jr.", "Chris Evans", "Scarlett Johansson"],
         "calificacion" => "+12",
+        "valoracion" => 4,
         "genero" => "Acción / Aventura",
-        "trailer" => "https://www.youtube.com/watch?v=eOrNdBpGMv8"
+        "trailer" => "https://www.youtube.com/embed/eOrNdBpGMv8?si=SNBI6nOUP02s0J-c"
     ],
-
     [
         "id" => 8,
         "nombre" => "Harry Potter y la piedra filosofal",
@@ -109,10 +110,10 @@ $peliculas = [
         "director" => "Chris Columbus",
         "reparto" => ["Daniel Radcliffe", "Emma Watson", "Rupert Grint"],
         "calificacion" => "Todos los públicos",
+        "valoracion" => 5,
         "genero" => "Fantasía / Aventura",
-        "trailer" => "https://www.youtube.com/watch?v=VyHV0BRtdxo"
+        "trailer" => "https://www.youtube.com/embed/VyHV0BRtdxo?si=JKCk3I56FVHhu5II"
     ],
-
     [
         "id" => 9,
         "nombre" => "Joker",
@@ -123,10 +124,10 @@ $peliculas = [
         "director" => "Todd Phillips",
         "reparto" => ["Joaquin Phoenix", "Robert De Niro", "Zazie Beetz"],
         "calificacion" => "+18",
+        "valoracion" => 4,
         "genero" => "Drama / Suspense",
-        "trailer" => "https://www.youtube.com/watch?v=zAGVQLHvwOY"
+        "trailer" => "https://www.youtube.com/embed/zAGVQLHvwOY?si=VwisRDhL5eCdfO_f"
     ],
-
     [
         "id" => 10,
         "nombre" => "Coco",
@@ -137,10 +138,10 @@ $peliculas = [
         "director" => "Lee Unkrich",
         "reparto" => ["Anthony Gonzalez", "Gael García Bernal", "Benjamin Bratt"],
         "calificacion" => "Todos los públicos",
+        "valoracion" => 5,
         "genero" => "Animación / Aventura",
-        "trailer" => "https://www.youtube.com/watch?v=xlnPHQ3TLX8"
+        "trailer" => "https://www.youtube.com/embed/xlnPHQ3TLX8?si=uoK2aLfWi_Snidjy"
     ],
-
     [
         "id" => 11,
         "nombre" => "Gladiator",
@@ -151,10 +152,10 @@ $peliculas = [
         "director" => "Ridley Scott",
         "reparto" => ["Russell Crowe", "Joaquin Phoenix", "Connie Nielsen"],
         "calificacion" => "+18",
+        "valoracion" => 5,
         "genero" => "Acción / Drama histórico",
-        "trailer" => "https://www.youtube.com/watch?v=owK1qxDselE"
+        "trailer" => "https://www.youtube.com/embed/owK1qxDselE?si=vu6C9JoY_9Y4jj8Z"
     ],
-
     [
         "id" => 12,
         "nombre" => "Spider-Man: No Way Home",
@@ -165,9 +166,20 @@ $peliculas = [
         "director" => "Jon Watts",
         "reparto" => ["Tom Holland", "Zendaya", "Benedict Cumberbatch"],
         "calificacion" => "+12",
+        "valoracion" => 4,
         "genero" => "Acción / Fantasía",
-        "trailer" => "https://www.youtube.com/watch?v=JfVOs4VSpmA"
+        "trailer" => "https://www.youtube.com/embed/JfVOs4VSpmA?si=pUHpB-mhoCz5_ul9"
     ]
 ];
+
+function buscarPeliculaPorId($peliculas, $id) {
+    foreach ($peliculas as $pelicula) {
+        if ($pelicula["id"] == $id) {
+            return $pelicula;
+        }
+    }
+
+    return null;
+}  
 
 ?>

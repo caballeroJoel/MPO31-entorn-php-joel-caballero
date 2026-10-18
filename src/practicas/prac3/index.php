@@ -66,7 +66,7 @@
                                     </div>
                                 </div>
                                 <div class="butons">
-                                    <a href=""><button>Trailer</button></a>       
+                                    <a href="./trailer.php?id=<?=$movie["id"];?>"><button>Trailer</button></a>       
                                     <a href="./detalle.php?id=<?=$movie["id"];?>"><button>+ Info</button></a>
                                 </div>
                             </div>
@@ -80,7 +80,7 @@
 
         </main>
 
-        
+        <?php require './templates/footer.php'; ?>
         
     </body>
     <script src="./scripts/app.js"></script>
