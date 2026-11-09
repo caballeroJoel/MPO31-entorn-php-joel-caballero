@@ -1,0 +1,468 @@
+body {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+
+    background-image: url(./../src/background.jpg);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+main {
+    width: 80rem;
+    height: 30rem;
+
+    display: flex;
+    justify-content: space-around;
+    
+
+    background-color: rgb(1, 107, 57);
+    border: 5px solid rgb(124, 69, 23);
+    border-radius: 12rem;
+}
+
+.wheel, .tablero {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    
+    img {
+        width: auto;
+        height: 90%;
+    }
+}
+
+.tablero img {
+    height: 60%;
+}
+
+.wheel img {
+    transition: transform 5s cubic-bezier(0.15, 0.5, 0.25, 1);
+}
+
+
+.wheel {
+    position: relative;
+
+    .bola {
+        position: absolute;
+
+        left: 49%;
+        top: 24%;
+
+        --tamano: 15px;
+
+        width: var(--tamano);
+        height: var(--tamano);
+
+        background-color: aliceblue;
+        border-radius: 50%;
+    }
+}
+
+
+.apuesta {
+    position: absolute;
+    top: 90vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 90%;
+    padding: 25px 30px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    align-items: center;
+    gap: 20px;
+
+    background-color: aliceblue;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+.apuesta h2 {
+    margin: 0;
+    align-self: center;
+    white-space: nowrap;
+}
+
+.apuesta label {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.apuesta input,
+.apuesta select {
+    width: 100%;
+    padding: 12px;
+
+    border: 1px solid #ccc;
+    border-radius: 8px;
+
+    font-size: 16px;
+    background-color: white;
+    outline: none;
+
+    box-sizing: border-box;
+}
+
+.apuesta input:focus,
+.apuesta select:focus {
+    border-color: #3498db;
+}
+
+.apuesta select {
+    cursor: pointer;
+}
+
+.apuesta button {
+    padding: 12px 25px;
+
+    background-color: #27ae60;
+    color: white;
+
+    border: none;
+    border-radius: 8px;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+    transition: 0.2s;
+    white-space: nowrap;
+    height: 43px;
+}
+
+.apuesta button:hover {
+    background-color: #219150;
+}
+
+
+.hidden {
+    display: none !important;
+}
+
+.backBloom {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    background-color: #00000078;
+}
+
+.popAlert {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 320px;
+    padding: 30px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+
+    border-radius: 18px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+
+.popAlert h2 {
+    margin: 0;
+    font-size: 26px;
+}
+
+.popAlert p {
+    margin: 0;
+    font-size: 15px;
+}
+
+.popAlert span {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+/* Victoria */
+.popAlert.ganado {
+    background-color: #d4edda;
+    color: #155724;
+    border: 2px solid #28a745;
+    
+    button {
+        color: #283f2e;
+        background-color: #28a745;
+    }
+}
+
+/* Derrota */
+.popAlert.perdido {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 2px solid #dc3545;
+
+    button {
+        color: #df97a0;
+        background-color: #dc3545;
+    }
+}
+
+.popAlert button {
+    padding: 6px 12px;
+
+    border: 1px solid black;
+    border-radius: 6px;
+
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+.contenedor-ruleta {
+    width: 100%;
+    max-width: 1000px;
+    overflow-x: auto;
+}
+
+.mesa {
+    min-width: 750px;
+    display: grid;
+
+    grid-template-columns: 65px 1fr 42px;
+    grid-template-rows: repeat(3, 62px) 48px 48px;
+
+    background-color: #086b3c;
+    color: white;
+}
+
+/* CASILLA DEL CERO */
+
+.cero {
+    grid-column: 1;
+    grid-row: 1 / 4;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid white;
+    font-size: 25px;
+}
+
+.rojo::after {
+    background-color: #ed1c35;
+}
+
+.negro::after {
+    background-color: #050505;
+}
+
+/* PAGOS 2:1 */
+
+.pagos {
+    grid-column: 3;
+    grid-row: 1 / 4;
+
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.pagos div {
+    border: 1px solid white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 13px;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+}
+
+/* DOCENAS */
+
+.docenas {
+    grid-column: 2;
+    grid-row: 4;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.docenas div {
+    border: 1px solid white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 19px;
+    font-weight: bold;
+}
+
+/* APUESTAS EXTERIORES */
+
+.exteriores {
+    grid-column: 2;
+    grid-row: 5;
+
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+}
+
+.exteriores div {
+    border: 1px solid white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* FICHAS ROJA Y NEGRA */
+
+.ficha-roja,
+.ficha-negra {
+    display: block;
+
+    width: 35px;
+    height: 35px;
+
+    border-radius: 50%;
+}
+
+.ficha-roja {
+    background-color: #ed1c35;
+}
+
+.ficha-negra {
+    background-color: #050505;
+}
+
+
+.numeros {
+    grid-column: 2;
+    grid-row: 1 / 4;
+
+    position: relative;
+
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.numero {
+    position: relative;
+    isolation: isolate;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid white;
+
+    font-size: 21px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.numero::after {
+    content: "";
+
+    position: absolute;
+    width: 38px;
+    height: 48px;
+
+    border-radius: 50%;
+    z-index: -1;
+
+    transition: 0.2s;
+}
+
+.rojo::after {
+    background-color: #ed1c35;
+}
+
+.negro::after {
+    background-color: #050505;
+}
+
+/* ILUMINACIÓN */
+
+.numero.iluminado::after {
+    filter: brightness(1.7);
+    box-shadow: 0 0 12px white;
+}
+
+/* NÚMEROS SELECCIONADOS */
+
+.numero.seleccionado::after {
+    filter: brightness(1.5);
+    box-shadow: 0 0 0 3px white;
+}
+
+/* CAPA DE ZONAS */
+
+.zonas {
+    position: absolute;
+    inset: 0;
+
+    z-index: 10;
+    pointer-events: none;
+}
+
+/* ZONAS DE APUESTA */
+
+.zona {
+    position: absolute;
+
+    width: 18px;
+    height: 18px;
+
+    transform: translate(-50%, -50%);
+
+    background-color: transparent;
+
+    border-radius: 50%;
+    cursor: pointer;
+
+    pointer-events: auto;
+}
+
+/* EFECTO AL PASAR POR ENCIMA */
+
+.zona:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 8px white;
+}
+
+/* ZONA SELECCIONADA */
+
+.zona.seleccionada {
+    background-color: rgba(255, 255, 255, 0.65);
+    box-shadow: 0 0 8px white;
+}
