@@ -9,50 +9,37 @@
 
     $html="";
 
-    if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["dinero"], $_GET["tipo"], $_GET["apuesta"]) ) {
+    if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["dinero"], $_GET["tipo"]) ) {
 
-        $numeroPartida = girarRuleta();
-        // $numeroPartida = 3;
-        $hayApuesta = true;
+        $dinero = filter_var($_GET["dinero"], FILTER_VALIDATE_FLOAT);
+        $apuesta = $_GET["apuestaMesa"] ?? $_GET["apuesta"] ?? null;
+        $tiposValidos = ["numero", "pleno", "color", "pares", "caballo", "cuadro", "docena", "columna", "pasa"];
 
-        $apuestaUser = [
-            "dinero" => $_GET["dinero"],
-            "tipo" => $_GET["tipo"],
-            "apuesta" => $_GET["apuesta"]
-        ];
-        
-        // mostrarArray($apuestaUser);
+        if ($dinero === false || $dinero < 1 || !in_array($_GET["tipo"], $tiposValidos, true) || $apuesta === null) {
+            $html = "<div class='backBloom'><div class='popAlert perdido'><h2>Apuesta no valida</h2><p>Revisa la cantidad y selecciona una apuesta de la mesa.</p><a href='index.php'><button>Volver</button></a></div></div>";
+        } else {
+            // $numeroPartida = girarRuleta();
+            $numeroPartida = 3;
+            $hayApuesta = true;
 
-        switch ($apuestaUser["tipo"]) {
+            $apuestaUser = [
+                "dinero" => $dinero,
+                "tipo" => $_GET["tipo"],
+                "apuesta" => $apuesta
+            ];
 
-            case "numero":
-                $resultado = $apuestaUser["apuesta"] == $numeroPartida;
-            break;
-
-            case "color":
-                $resultado = comprovarColor(
-                    $apuestaUser["apuesta"],
-                    $numeroPartida,
-                    $tablero
-                );
-
-            break;
-
-            case "pares":
-                $resultado = comprovarPares(
-                    $apuestaUser["apuesta"],
-                    $numeroPartida
-                );
-            break;
-
-            default:
-                $resultado = false;
-        }
+            $resultado = comprobarApuesta(
+                $apuestaUser["tipo"],
+                $apuestaUser["apuesta"],
+                $numeroPartida,
+                $tablero
+            );
         
         $profit=0;
 
         if($resultado) {
-            $profit = ganancias($apuestaUser["dinero"], $apuestaUser["tipo"], $profitApuesta);
+            $tipoGanancia = $apuestaUser["tipo"] === "pleno" ? "numero" : $apuestaUser["tipo"];
+            $profit = ganancias($apuestaUser["dinero"], $tipoGanancia, $profitApuesta);
             $html= "
             <div class='backBloom'>
                 <div class='popAlert ganado'>
@@ -74,6 +61,7 @@
                 </div>
             </div>
             ";
+        }
         }
     }
 
@@ -161,26 +149,26 @@
 
                         <!-- Pagos 2:1 -->
                         <div class="pagos">
-                            <div>2to1</div>
-                            <div>2to1</div>
-                            <div>2to1</div>
+                            <div data-tipo="columna" data-apuesta="1">2to1</div>
+                            <div data-tipo="columna" data-apuesta="2">2to1</div>
+                            <div data-tipo="columna" data-apuesta="3">2to1</div>
                         </div>
 
                         <!-- Docenas -->
                         <div class="docenas">
-                            <div>1st12</div>
-                            <div>2nd12</div>
-                            <div>3rd12</div>
+                            <div data-tipo="docena" data-apuesta="1">1st12</div>
+                            <div data-tipo="docena" data-apuesta="2">2nd12</div>
+                            <div data-tipo="docena" data-apuesta="3">3rd12</div>
                         </div>
 
                         <!-- Apuestas exteriores -->
                         <div class="exteriores">
-                            <div>1to18</div>
-                            <div>EVEN</div>
-                            <div><span class="ficha-roja"></span></div>
-                            <div><span class="ficha-negra"></span></div>
-                            <div>ODD</div>
-                            <div>19to36</div>
+                            <div data-tipo="pasa" data-apuesta="1">1to18</div>
+                            <div data-tipo="pares" data-apuesta="par">EVEN</div>
+                            <div data-tipo="color" data-apuesta="red"><span class="ficha-roja"></span></div>
+                            <div data-tipo="color" data-apuesta="black"><span class="ficha-negra"></span></div>
+                            <div data-tipo="pares" data-apuesta="impar">ODD</div>
+                            <div data-tipo="pasa" data-apuesta="2">19to36</div>
                         </div>
 
                     </div>
@@ -209,6 +197,11 @@
                 <option value="numero">Número</option>
                 <option value="color">Color</option>
                 <option value="pares">Par / Impar</option>
+                <option value="caballo">Caballo</option>
+                <option value="cuadro">Cuadro</option>
+                <option value="docena">Docena</option>
+                <option value="columna">Columna</option>
+                <option value="pasa">Falta / Pasa</option>
             </select>
 
             <label for="apuesta">Tu apuesta</label>
@@ -231,6 +224,8 @@
                 <option value="par">Par</option>
                 <option value="impar">Impar</option>
             </select>
+
+            <input type="hidden" name="apuestaMesa" id="apuestaMesa" disabled>
 
             <button type="submit">Apostar</button>
         </form>

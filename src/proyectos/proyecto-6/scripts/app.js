@@ -3,36 +3,32 @@ const tipo = document.querySelector("#tipo");
 const numero = document.querySelector("#apuestaNumero");
 const color = document.querySelector("#apuestaColor");
 const par = document.querySelector("#apuestaPar");
+const apuestaMesa = document.querySelector("#apuestaMesa");
+
+function actualizarControles() {
+    [numero, color, par].forEach(control => {
+        control.hidden = true;
+        control.disabled = true;
+        control.required = false;
+    });
+
+    const controles = { numero, color, pares: par };
+    const control = controles[tipo.value];
+
+    if (control) {
+        control.hidden = false;
+        control.disabled = false;
+        control.required = true;
+    }
+}
 
 tipo.addEventListener("change", () => {
-
-    numero.hidden = true;
-    color.hidden = true;
-    par.hidden = true;
-
-    numero.disabled = true;
-    color.disabled = true;
-    par.disabled = true;
-
-    if (tipo.value == "numero") {
-        numero.hidden = false;
-        numero.disabled = false;
-        numero.required = true;
-    }
-
-    if (tipo.value == "color") {
-        color.hidden = false;
-        color.disabled = false;
-        color.required = true;
-    }
-
-    if (tipo.value == "pares") {
-        par.hidden = false;
-        par.disabled = false;
-        par.required = true;
-    }
-
+    apuestaMesa.disabled = true;
+    apuestaMesa.value = "";
+    actualizarControles();
 });
+
+actualizarControles();
 
 
 const ruleta = document.querySelector("#ruleta");
@@ -133,9 +129,16 @@ function seleccionar(tipo, numeros, elemento) {
 
     } else {
 
+        // El formulario representa una tirada y, por tanto, una apuesta.
+        document.querySelectorAll(".seleccionada").forEach(item => {
+            item.classList.remove("seleccionada");
+        });
+        selecciones.splice(0, selecciones.length);
+
         selecciones.push({
-            tipo: tipo,
-            numeros: numeros
+            tipo: tipo === "pleno" ? "numero" : tipo,
+            numeros: numeros,
+            elemento: elemento
         });
 
         elemento.classList.add("seleccionada");
@@ -144,8 +147,37 @@ function seleccionar(tipo, numeros, elemento) {
 
     // Actualizar iluminación permanente
     actualizarSeleccion();
+    sincronizarFormulario();
 
     console.log(selecciones);
+}
+
+function sincronizarFormulario() {
+    const seleccion = selecciones[0];
+
+    if (!seleccion) {
+        apuestaMesa.disabled = true;
+        apuestaMesa.value = "";
+        return;
+    }
+
+    tipo.value = seleccion.tipo;
+    actualizarControles();
+
+    const valor = seleccion.tipo === "color" || seleccion.tipo === "pares"
+        ? seleccion.numeros[0]
+        : seleccion.numeros.join(",");
+
+    if (seleccion.tipo === "numero") {
+        numero.value = seleccion.numeros[0];
+    } else if (seleccion.tipo === "color") {
+        color.value = valor;
+    } else if (seleccion.tipo === "pares") {
+        par.value = valor;
+    } else {
+        apuestaMesa.value = valor;
+        apuestaMesa.disabled = false;
+    }
 }
 
 
@@ -313,13 +345,29 @@ casillas.forEach(casilla => {
     casilla.addEventListener("click", () => {
 
         seleccionar(
-            "pleno",
+            "numero",
             [Number(casilla.dataset.numero)],
             casilla
         );
 
     });
 
+});
+
+document.querySelector(".cero").addEventListener("click", event => {
+    seleccionar("numero", [0], event.currentTarget);
+});
+
+document.querySelectorAll("[data-tipo][data-apuesta]").forEach(elemento => {
+    elemento.addEventListener("click", () => {
+        const tipoApuesta = elemento.dataset.tipo;
+        const valor = elemento.dataset.apuesta;
+        const numeros = (tipoApuesta === "color" || tipoApuesta === "pares")
+            ? [valor]
+            : [Number(valor)];
+
+        seleccionar(tipoApuesta, numeros, elemento);
+    });
 });
 
 
