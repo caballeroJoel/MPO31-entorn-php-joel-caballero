@@ -39,15 +39,24 @@ if (typeof resultadoRuleta !== "undefined" && resultadoRuleta.animar) {
     const vueltas = 5;
     const gradosFinales = (vueltas * 360) + resultadoRuleta.posicion;
 
-    // Iniciar animación
-    ruleta.style.transform = `rotate(${gradosFinales}deg)`;
-
-    // Esperar a que termine la animación
-    ruleta.addEventListener("transitionend", () => {
-
+    const temporizadorResultado = window.setTimeout(() => {
         resultado.classList.remove("hidden");
+    }, 5500);
 
+    ruleta.addEventListener("transitionend", event => {
+        if (event.target !== ruleta || event.propertyName !== "transform") {
+            return;
+        }
+
+        window.clearTimeout(temporizadorResultado);
+        resultado.classList.remove("hidden");
     }, { once: true });
+
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            ruleta.style.transform = `rotate(${gradosFinales}deg)`;
+        });
+    });
 
 }
 

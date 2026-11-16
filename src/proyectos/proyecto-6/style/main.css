@@ -477,3 +477,145 @@ main {
     background-color: rgba(255, 255, 255, 0.65);
     box-shadow: 0 0 8px white;
 }
+
+.sesion {
+    position: absolute;
+    top: 25px;
+    right: 30px;
+
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    padding: 12px 18px;
+
+    background: #ffffff;
+    border: 2px solid #7c4517;
+    border-radius: 15px;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+
+    font-family: Arial, sans-serif;
+}
+
+.info-usuario {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.avatar {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #086b3c;
+    color: white;
+
+    border-radius: 50%;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.datos-usuario {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.nombre {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+}
+
+.saldo {
+    font-size: 16px;
+    font-weight: bold;
+    color: #086b3c;
+}
+
+.logout {
+    padding: 10px 14px;
+
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    background: #a52a2a;
+    color: white;
+
+    text-decoration: none;
+    border-radius: 8px;
+
+    font-size: 13px;
+    font-weight: bold;
+
+    transition: 0.2s;
+}
+
+.logout:hover {
+    background: #7e1e1e;
+}
+
+.contenedor {
+    background: white;
+    width: 350px;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+
+
+    h1 {
+        text-align: center;
+        margin-bottom: 25px;
+        color: #243b55;
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 15px;
+        color: #333;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    input {
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 14px;
+        outline: none;
+    }
+
+    input:focus {
+        border-color: #243b55;
+    }
+
+    button {
+        padding: 12px;
+        background: #243b55;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 15px;
+    }
+
+    button:hover {
+        background: #141e30;
+    }
+
+    hr {
+        margin: 25px 0;
+        border: 0;
+        border-top: 1px solid #ddd;
+    }
+}
