@@ -14,17 +14,27 @@
 
         <h3>Teroia:</h3>
         <ul>
-            <li>Sesion 1
-                <ul>
-                    <li><a href="./teoria/sesion1_18-09/hola.php">hola.php</a></li>
-                    <li><a href="./teoria/sesion1_18-09/carta.php">carta.php</a></li>
-                </ul>
-            </li>
-            <li>Sesion 2
+            <?php
+                $ruta1='./teoria';
+                $cont=0;
+                $directorio = new DirectoryIterator($ruta1);
+
+                foreach ($directorio as $elemento) {
+                    $cont++;
+                    ?>
+                        <li>Sesion <?=$cont?>
+                            <ul>
+                                <li><a href="./teoria/sesion<?=$cont?>/">index.php</a></li>
+                            </ul>
+                        </li>
+                    <?php
+                }
+            ?>
+            <!-- <li>Sesion 2
                 <ul>
                     <li><a href="./teoria/sesion2_25-09">hola.php</a></li>
                 </ul>
-            </li>
+            </li> -->
         </ul>
         
         <h3>Practica:</h3>
