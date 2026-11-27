@@ -1,0 +1,14 @@
+/* Paleta de colores reSell */
+:root {
+    --color-ambar: #D78B3F;
+    --color-cobre: #AF572C;
+    --color-oxido: #8D3C1D;
+    --color-granate: #570A10;
+    --color-noche: #230033;
+
+    /* Colores de apoyo */
+    --color-crema: #FBF4EC;
+    --color-blanco: #FFFFFF;
+    --color-texto: #2A1A22;
+    --color-texto-suave: #6E5A60;
+}

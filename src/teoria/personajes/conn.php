@@ -1,13 +1,6 @@
 <?php
     require_once('./config.php');
 
-    
-    try {
-        $pdo = db();
-    } catch (PDOException $e){
-        die("Error de conexion - ". $e->getMessage());
-    }
-
     $sql = "
         SELECT *
         FROM videojocs
